@@ -14,7 +14,7 @@
  library(knitr)
  opts_chunk$set(echo = TRUE, results = 'hold')
  
- activityData <- read.csv('./data/activity.csv', header = TRUE, sep = ",",
+ activityData <- read.csv('./activity.csv', header = TRUE, sep = ",",
                          colClasses=c("numeric", "character", "numeric"))
 ```
  
@@ -31,7 +31,7 @@ A portion of the original dataset is as follows:
 ```
   
 
-The activity.csv file size is 3.50829\times 10^{5}    
+The activity.csv file size is NA    
 Number of Rows in the file is 17568  
 
 
@@ -104,7 +104,7 @@ The Median of the total number of steps taken per day is : 1.0765\times 10^{4}
 
 ```r
   library(ggplot2)
-  activityData <- read.csv('./data/activity.csv', header = TRUE, sep = ",", colClasses=c("numeric", "character", "numeric"))
+  activityData <- read.csv('./activity.csv', header = TRUE, sep = ",", colClasses=c("numeric", "character", "numeric"))
   averages <- aggregate(x=list(steps=as.numeric(activityData$steps)),by=list(interval=as.numeric(activityData$interval)),FUN=mean, na.rm=TRUE)
   ggplot(data=averages, aes(x=interval, y=steps))+geom_line()+xlab("5-minute interval")+ylab("average number of steps taken")
 ```
